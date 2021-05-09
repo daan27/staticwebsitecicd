@@ -11,12 +11,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-      uses: daan27/staticwebsitecicd@master
+     
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
+        
     - name: Start Deploy static site to S3 bucket
       run: aws s3 sync daan27/staticwebsitecicd/ s3://websitefolder --delete
