@@ -20,5 +20,5 @@ jobs:
         aws-region: us-east-2
         
     - name: Start Deploy static site to S3 bucket
-      run: aws s3 sync . s3://websitefolder/ --delete
+      run: aws s3 sync . s3://websitefolder/ --delete --exclude ".git" --exclude ".github/*"
     
